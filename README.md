@@ -46,7 +46,7 @@ Sistem manajemen event berbasis web yang dirancang untuk mengelola data event, k
 
 ## 🌐 Deployment
 - **Frontend:** [https://web-infofest-mnk3.vercel.app](https://web-infofest-mnk3.vercel.app)
-- **Backend:** [https://web-infofest-production.up.railway.app](https://web-infofest-production.up.railway.app)
+- **Backend:** http://localhost:3000
 
 ## 👤 Author
 **Ade Anang Kurniawan**
