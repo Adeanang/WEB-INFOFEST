@@ -33,8 +33,7 @@ export default function PembicaraCreate() {
         resolver: zodResolver(schema)
     });
 
-    // 👇 INI SUDAH DIUBAH: Mengarah ke backend Railway
-    const API_URL = "https://web-infofest-production.up.railway.app/pembicara"; 
+  const API_URL = "http://localhost:3000/pembicara"; 
 
     const onSubmit = async (data: FormData) => {
         setApiError(null);

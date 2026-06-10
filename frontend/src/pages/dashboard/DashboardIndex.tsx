@@ -24,8 +24,7 @@ export default function DashboardIndex() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    // 👇 INI SUDAH DIUBAH: Mengarah ke backend Railway
-    const API_URL = "https://web-infofest-production.up.railway.app/dashboard";
+const API_URL = `${import.meta.env.VITE_API_URL}/dashboard`;
 
     // 2. Fetch data dari Backend
     useEffect(() => {

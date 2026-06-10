@@ -5,6 +5,8 @@ import eventRoutes from './routes/eventRoute.js';
 import categoryRoutes from './routes/categoryRoute.js';
 import pembicaraRoutes from './routes/pembicaraRoute.js';
 import dashboardRoutes from './routes/dashboardRoute.js'; 
+import authRoutes from './routes/authRoute.js';
+import userRoutes from './routes/userRoute.js';
 
 const app = express();
 
@@ -24,8 +26,9 @@ app.use('/events', eventRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/pembicara', pembicaraRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
 
-// 4. app.listen CUKUP SATU KALI SAJA di paling bawah
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running at http://localhost:${port}`);
 });

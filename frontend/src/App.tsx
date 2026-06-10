@@ -27,6 +27,10 @@ import PembicaraEdit from "./pages/dashboard/pembicara/PembicaraEdit";
 import EventEdit from "./pages/dashboard/event/EventEdit";
 import BiodataIndex from "./pages/dashboard/biodata/BiodataIndex";
 
+import UserIndex from "./pages/dashboard/User/UserIndex";
+import UserCreate from "./pages/dashboard/User/UserCreate";
+import UserEdit from "./pages/dashboard/User/UserEdit";
+
 
 function App() {
 
@@ -71,6 +75,11 @@ function App() {
             <Route path="/dashboard/event/edit/:id" element={<EventEdit />} />
 
             <Route path="/dashboard/biodata" element={<BiodataIndex />} />
+            
+            {/* USER */}
+            <Route path="/dashboard/user" element={<UserIndex />} />
+            <Route path="/dashboard/user/create" element={<UserCreate />} />
+            <Route path="/dashboard/user/edit/:id" element={<UserEdit />} />
 
 
 

@@ -22,7 +22,7 @@ export default function CategoryEdit() {
     const [apiError, setApiError] = useState<string | null>(null);
 
     // URL SUDAH DIGANTI KE RAILWAY
-    const API_URL = `https://web-infofest-production.up.railway.app/categories/${id}`;
+    const API_URL = `${import.meta.env.VITE_API_URL}/categories/${id}`;
 
     // 2. Inisialisasi useForm (tambahkan fungsi 'reset')
     const {

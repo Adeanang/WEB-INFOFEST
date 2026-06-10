@@ -30,8 +30,7 @@ export default function EventEdit() {
     const [categories, setCategories] = useState<DropdownItem[]>([]);
     const [pembicaras, setPembicaras] = useState<DropdownItem[]>([]);
 
-    // 👇 UBAH 1: URL untuk mengambil & mengupdate data event ini ke Railway
-    const API_URL = `https://web-infofest-production.up.railway.app/events/${id}`;
+const API_URL = `http://localhost:3000/events/${id}`;
 
     const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
         resolver: zodResolver(schema)
@@ -42,9 +41,8 @@ export default function EventEdit() {
             try {
                 // Tarik 3 data secara paralel
                 const [catRes, pemRes, eventRes] = await Promise.all([
-                    // 👇 UBAH 2 & 3: Ambil list kategori dan pembicara dari Railway
-                    fetch("https://web-infofest-production.up.railway.app/categories"),
-                    fetch("https://web-infofest-production.up.railway.app/pembicara"),
+                fetch("http://localhost:3000/categories"),
+                fetch("http://localhost:3000/pembicara"),
                     fetch(API_URL)
                 ]);
                 

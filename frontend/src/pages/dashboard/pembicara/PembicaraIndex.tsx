@@ -14,8 +14,7 @@ export default function PembicaraIndex() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    // 👇 INI SUDAH DIUBAH: Mengarah ke backend Railway
-    const API_URL = "https://web-infofest-production.up.railway.app/pembicara";
+const API_URL = "http://localhost:3000/pembicara";
 
     const fetchPembicaras = async () => {
         try {

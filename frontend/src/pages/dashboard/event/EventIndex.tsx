@@ -21,9 +21,8 @@ export default function EventIndex() {
     const [events, setEvents] = useState<EventData[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-
-    // 👇 INI SUDAH DIUBAH: Mengarah ke backend Railway
-    const API_URL = "https://web-infofest-production.up.railway.app/events";
+    
+    const API_URL = "http://localhost:3000/events";
 
     const fetchEvents = async () => {
         try {

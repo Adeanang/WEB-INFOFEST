@@ -26,8 +26,7 @@ export default function CategoryCreate() {
         resolver: zodResolver(schema)
     });
 
-    // URL SUDAH DIGANTI KE RAILWAY
-    const API_URL = "https://web-infofest-production.up.railway.app/categories"; 
+  const API_URL = `${import.meta.env.VITE_API_URL}/categories`;
 
     // Fungsi onSubmit sekarang diletakkan di dalam agar memiliki akses ke 'navigate' dan state
     const onSubmit = async (data: FormData) => {

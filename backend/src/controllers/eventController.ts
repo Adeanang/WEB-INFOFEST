@@ -54,12 +54,30 @@ export const showEventById = async (req: Request<{ id: string }>, res: Response)
 
 // 3. Membuat Event baru
 export const createEvent = async (req: Request, res: Response) => {
-    // PERBAIKAN: Tambahkan pembicaraId
-    const { name, categoryId, pembicaraId, location, dateEvent, description } = req.body;
+    const {
+        name,
+        categoryId,
+        pembicaraId,
+        userId,
+        location,
+        dateEvent,
+        description
+    } = req.body;
 
     // Validasi input
-    if (!name || !categoryId || !pembicaraId || !location || !dateEvent || !description) {
-        res.status(400).json({ success: false, message: "Semua field harus diisi" });
+    if (
+        !name ||
+        !categoryId ||
+        !pembicaraId ||
+        !userId ||
+        !location ||
+        !dateEvent ||
+        !description
+    ) {
+        res.status(400).json({
+            success: false,
+            message: "Semua field harus diisi"
+        });
         return;
     }
 
@@ -68,19 +86,36 @@ export const createEvent = async (req: Request, res: Response) => {
             data: {
                 name,
                 categoryId: parseInt(categoryId, 10),
-                pembicaraId: parseInt(pembicaraId, 10), // PERBAIKAN: Masukkan pembicaraId ke database
+                pembicaraId: parseInt(pembicaraId, 10),
+                userId: parseInt(userId, 10),
                 location,
-                dateEvent: new Date(dateEvent), 
+                dateEvent: new Date(dateEvent),
                 description
-            },
+            }
         });
-        res.status(201).json({ success: true, message: "Event berhasil dibuat", data: newEvent });
+
+        res.status(201).json({
+            success: true,
+            message: "Event berhasil dibuat",
+            data: newEvent
+        });
+
     } catch (error: any) {
-        if (error.code === 'P2003') {
-            res.status(400).json({ success: false, message: "Kategori atau Pembicara yang dipilih tidak valid/tidak ditemukan" });
+        console.log("ERROR EVENT =", error);
+
+        if (error.code === "P2003") {
+            res.status(400).json({
+                success: false,
+                message: "Kategori, Pembicara, atau User tidak valid"
+            });
             return;
         }
-        res.status(500).json({ success: false, message: "Terjadi kesalahan saat membuat event", error });
+
+        res.status(500).json({
+            success: false,
+            message: "Terjadi kesalahan saat membuat event",
+            error: error.message
+        });
     }
 };
 

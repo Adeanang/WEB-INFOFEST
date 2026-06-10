@@ -13,10 +13,8 @@ export default function CategoryIndex() {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    // URL SUDAH DIGANTI KE RAILWAY
-    const API_URL = "https://web-infofest-production.up.railway.app/categories";
+ const API_URL = `${import.meta.env.VITE_API_URL}/categories`;
 
-    // Fungsi untuk mengambil data dari backend
     const fetchCategories = async () => {
         try {
             const response = await fetch(API_URL);

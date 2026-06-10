@@ -22,8 +22,7 @@ export default function PembicaraEdit() {
     const [isFetching, setIsFetching] = useState<boolean>(true);
     const [apiError, setApiError] = useState<string | null>(null);
 
-    // 👇 INI SUDAH DIUBAH: Mengarah ke backend Railway
-    const API_URL = `https://web-infofest-production.up.railway.app/pembicara/${id}`;
+const API_URL = `http://localhost:3000/pembicara/${id}`;
 
     const {
         register,
